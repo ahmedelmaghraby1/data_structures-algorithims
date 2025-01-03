@@ -1,10 +1,12 @@
-class Stack<T> {
+import 'stack.dart';
+
+class NormalStack<T> extends Stack<T> {
   final int maxSize;
   int top;
   final List<T> _elements = [];
   List<T> get elements => _elements;
-  Stack({required this.maxSize, this.top = -1});
-
+  NormalStack({required this.maxSize, this.top = -1});
+  @override
   void push(T value) {
     if (top < maxSize - 1) {
       top++;
