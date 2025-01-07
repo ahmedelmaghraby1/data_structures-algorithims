@@ -20,7 +20,7 @@ class NormalStack<T> extends Stack<T> {
     if (isEmpty) {
       print('stack is ismpty');
     } else {
-      _elements.removeAt(top);
+      _elements.removeLast();
       top--;
     }
   }
