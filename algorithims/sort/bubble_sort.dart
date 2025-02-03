@@ -1,27 +1,29 @@
-void bubbleSort(List<int> arr) {
-  int n = arr.length;
-  bool swapped;
+import 'sort.dart';
 
-  for (int i = 0; i < n - 1; i++) {
-    swapped = false;
+class BubbleSort extends Sort {
+  BubbleSort({required super.values});
 
-    for (int j = 0; j < n - i - 1; j++) {
-      if (arr[j] > arr[j + 1]) {
-        // تبديل القيم
-        int temp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = temp;
-        swapped = true;
+  @override
+  sort() {
+    bool swapped = false;
+    for (int i = 0; i < values.length - 1; i++) {
+      swapped = false;
+
+//[14, 3, 7, 23, 11, 92, 54, 94, 97, 102]
+      for (int j = 0; j < values.length - i - 1; j++) {
+        if (values[j] > values[j + 1]) {
+          // تبديل القيم
+          swapElements(i: j, j: j + 1);
+          swapped = true;
+        } else {
+          swapped == false;
+        }
       }
+
+      // إذا لم يتم التبديل، فالمصفوفة مرتبة بالفعل
     }
-
-    // إذا لم يتم التبديل، فالمصفوفة مرتبة بالفعل
-    if (!swapped) break;
+    if (!swapped) {
+      print('List is sorted');
+    }
   }
-}
-
-void main() {
-  List<int> numbers = [5, 1, 4, 2, 8];
-  bubbleSort(numbers);
-  print(numbers); // [1, 2, 4, 5, 8]
 }
